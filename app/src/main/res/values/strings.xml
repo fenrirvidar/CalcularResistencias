@@ -1,3 +1,49 @@
 <resources>
     <string name="app_name">CalcularResistencia</string>
+    <string name="banda1">Banda 1</string>
+    <string name="banda2">Banda 2</string>
+    <string name="banda3">Banda 3</string>
+    <string name="banda4">Banda 4</string>
+    <string name="color1">Color 1</string>
+    <string name="color2">Color 2</string>
+    <string name="color3">Color 3</string>
+    <string name="color4">Color 4</string>
+
+    <string-array name="Colorbanda1y2">
+        <item>Negra</item>
+        <item>Marrón</item>
+        <item>Roja</item>
+        <item>Naranja</item>
+        <item>Amarilla</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Violeta</item>
+        <item>Gris</item>
+        <item>Blanca</item>
+    </string-array>
+
+    <string-array name="Colorbanda3">
+        <item>Negra</item>
+        <item>Marrón</item>
+        <item>Roja</item>
+        <item>Naranja</item>
+        <item>Amarilla</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Violeta</item>
+        <item>Dorada</item>
+        <item>Plateada</item>
+
+    </string-array>
+    <string-array name="Colorbanda4">
+        <item>Plateada</item>
+        <item>Dorada</item>
+        <item>Roja</item>
+        <item>Marrón</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Violeta</item>
+        <item>Gris</item>
+    </string-array>
+
 </resources>
