@@ -8,6 +8,8 @@
     <string name="color2">Color 2</string>
     <string name="color3">Color 3</string>
     <string name="color4">Color 4</string>
+    <string name="TextViewResistencia">Resistencia: </string>
+    <string name="TextViewTolerancia">Tolerancia: </string>
 
     <string-array name="Colorbanda1y2">
         <item>Negra</item>
@@ -36,14 +38,14 @@
 
     </string-array>
     <string-array name="Colorbanda4">
-        <item>Plateada</item>
-        <item>Dorada</item>
         <item>Roja</item>
         <item>Marrón</item>
         <item>Verde</item>
         <item>Azul</item>
         <item>Violeta</item>
         <item>Gris</item>
+        <item>Dorada</item>
+        <item>Plateada</item>
     </string-array>
 
 </resources>

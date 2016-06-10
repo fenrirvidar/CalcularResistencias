@@ -17,28 +17,21 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView1,textView2, textView3, textView7;
     TextView textView4,textView5, textView6, textView8;
+    EditText editTextResistencia, editTextTolerancia;
     Spinner spinner1, spinner2, spinner3, spinner4;
     String[] posiciones1, posiciones2, posiciones3, posiciones4;
 
+    double multiplicador, tolerancia;
+
     String[] CodiColors1y2 = {"#000000", "#937036", "#ff0404","#f5ff5500","#ffe900","#2eff00","#1000ff","#ee00ff","#656266","#ffffff" };
     String[] CodiColors3 = {"#000000","#937036","#ff0404","#f5ff5500","#ffe900","#2eff00","#1000ff","#ee00ff","#ffd700","#b7b5b7"};
-    String[] CodiColors4 ={"#b7b5b7","#ffd700","#ff0404","#937036","#2eff00","#1000ff","#ee00ff","#656266"};
+    String[] CodiColors4 ={"#ff0404","#937036","#2eff00","#1000ff","#ee00ff","#656266","#ffd700","#b7b5b7"};
 
-    /*
-    Negra: 000000
-    Marrón: 937036
-    Roja: ff0404
-    Naranja: f5ff5500
-    Amarilla: ffe900
-    Verde: 2eff00
-    Azul: 1000ff
-    Violeta: ee00ff
-    Gris: 656266
-    Blanca: ffffff
-    plateada: b7b5b7
-    dorado: ffd700
-     */
+    String [] valores1y2 = { "0","1","2","3","4","5","6","7","8","9"};
+    String [] multiplicadorbanda3 = { "1.0","10.0","100.0","1000.0","10000.0","100000.0","1000000.0","10000000.0","0.1","0.01"};
+    String [] Tolerancia = {"1","2","0.5","0.25","0.10","0.05","5","10"};
 
+    double banda1, banda2,banda3, resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,18 +72,20 @@ public class MainActivity extends AppCompatActivity {
         final String[] posiciones4 = getResources().getStringArray(R.array.Colorbanda4);
         textView8 = (TextView) this.findViewById(R.id.textView8);
 
+        editTextResistencia = (EditText) this.findViewById(R.id.editTextResistencia);
+        editTextTolerancia = (EditText) this.findViewById(R.id.editTextTolerancia);
+
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
 
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id){
+
                 textView4.setText(posiciones1[position]);
                 textView4.setBackgroundColor(Color.parseColor(CodiColors1y2[position]));
-                if (position==0){
-                    textView4.setTextColor(Color.WHITE);
-                }
-                else {
-                    textView4.setTextColor(Color.BLACK);
-                }
+                banda1 = Double.parseDouble(valores1y2[position]);
+                resultado = ((banda1 * 10) + (banda2)) * (multiplicador);
+                editTextResistencia.setText(Double.toString(resultado) + " Ω");
+
             }
             public void onNothingSelected(AdapterView<?> parentView) {
             }
@@ -100,12 +95,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id){
                 textView5.setText(posiciones2[position]);
                 textView5.setBackgroundColor(Color.parseColor(CodiColors1y2[position]));
-                if (position==0){
-                    textView5.setTextColor(Color.WHITE);
-                }
-                else {
-                    textView5.setTextColor(Color.BLACK);
-                }
+
+                banda2 = Double.parseDouble(valores1y2[position]);
+                resultado = ((banda1 * 10) + (banda2)) * (multiplicador);
+                editTextResistencia.setText(Double.toString(resultado) + " Ω");
             }
             public void onNothingSelected(AdapterView<?> parentView) {
             }
@@ -115,12 +108,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id){
                 textView6.setText(posiciones3[position]); //Fem que aparegui el text del color seleccionat
                 textView6.setBackgroundColor(Color.parseColor(CodiColors3[position]));
-                if (position==0){
-                    textView6.setTextColor(Color.WHITE);
-                }
-                else {
-                    textView6.setTextColor(Color.BLACK);
-                }
+
+                multiplicador = Double.parseDouble(multiplicadorbanda3[position]);
+                resultado = ((banda1 * 10) + (banda2)) * (multiplicador);
+                editTextResistencia.setText(Double.toString(resultado) + " Ω");
             }
             public void onNothingSelected(AdapterView<?> parentView) {
             }
@@ -129,8 +120,10 @@ public class MainActivity extends AppCompatActivity {
 
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id){
                 textView8.setText(posiciones4[position]); //Fem que aparegui el text del color seleccionat
-
                 textView8.setBackgroundColor(Color.parseColor(CodiColors4[position]));
+
+                tolerancia = Double.parseDouble(Tolerancia[position]);
+                editTextTolerancia.setText("± " + Double.toString(tolerancia));
             }
             public void onNothingSelected(AdapterView<?> parentView) {
             }
